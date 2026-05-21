@@ -33,6 +33,28 @@ jobs:
         run: |
           git config --global url."https://${{ secrets.PAT }}@github.com/".insteadOf "https://github.com/"
           git submodule update --init --recursive
+
+      - name: Install Rust
+        uses: dtolnay/rust-toolchain@stable
+        with:
+          toolchain: stable
+
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libssl-dev libgtk-3-dev
+
+      - name: Generate bridge
+        run: |
+          cargo run -p flutter_rust_bridge_codegen -- --input-inline --dart-output --rust-input
+
+      - name: Upload bridge files
+        uses: actions/upload-artifact@v4
+        with:
+          name: bridge-artifact
+          path: |
+            flutter/lib/bridge/
+            flutter_rust_api/lib/src/
     
       - name: Install prerequisites
         run: |
