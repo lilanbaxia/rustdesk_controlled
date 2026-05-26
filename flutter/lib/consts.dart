@@ -244,8 +244,8 @@ const Color kColorCanvas = Colors.black;
 const int kMobileDefaultDisplayWidth = 720;
 const int kMobileDefaultDisplayHeight = 1280;
 
-const int kDesktopDefaultDisplayWidth = 1080;
-const int kDesktopDefaultDisplayHeight = 720;
+const int kDesktopDefaultDisplayWidth = 316;
+const int kDesktopDefaultDisplayHeight = 412;
 
 const int kMobileMaxDisplaySize = 1280;
 const int kDesktopMaxDisplaySize = 3840;
