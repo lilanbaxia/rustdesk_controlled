@@ -281,10 +281,14 @@ class _ConnectionPageState extends State<ConnectionPage>
   @override
   Widget build(BuildContext context) {
     final isOutgoingOnly = bind.isOutgoingOnly();
-    return Column(      
-        ).paddingOnly(left: 12.0)),
-        if (!isOutgoingOnly) const Divider(height: 1),
-        if (!isOutgoingOnly) OnlineStatusWidget()
+    return Column(
+      children: [
+        Expanded(
+            child: Column( 
+            if (!isOutgoingOnly) const Divider(height: 1),
+            if (!isOutgoingOnly) OnlineStatusWidget()
+          ],
+        ).paddingOnly(left: 12.0)),        
       ],
     );
   }
